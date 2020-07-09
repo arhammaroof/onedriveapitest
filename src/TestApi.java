@@ -15,13 +15,14 @@ public class TestApi {
 	       String baseUrl = "https://login.microsoft.com/common/oauth2/v2.0/";
 	       String authorizationCode = "authorization_code";
 	       String redirectUri = "http://localhost:8080/podium/login";
+	       String scope = "onedrive.readwrite";
 	       String readLine = null;
 	       String accesstoken = null ;
 	       int responseCode = 0;
 	       
 	       File file = new File("D:\\123.txt");
 	       //get code for access token
-	       String code = getCode(baseUrl, clientid, redirectUri);
+	       String code = getCode(baseUrl, clientid, redirectUri, scope);
 	       //get access token
 	       accesstoken =  getAccessToken(baseUrl,clientid,redirectUri,authorizationCode, code,clientsecret);
 	       //upload api
@@ -68,8 +69,8 @@ public class TestApi {
 		    }
 		    return bArray;
 		  } 
-	private static String getCode(String baseUrl, String clientid, String redirectUri) throws IOException, JSONException {
-	       URL urlForCode = new URL(baseUrl+"authorize?"+"client_id="+clientid+"&scope=offline_access+files.readwrite&response_type=code"+"&redirect_uri="+redirectUri);
+	private static String getCode(String baseUrl, String clientid, String redirectUri, String scope) throws IOException, JSONException {
+	       URL urlForCode = new URL(baseUrl+"authorize?"+"client_id="+clientid+"&scope="+scope+"&response_type=code"+"&redirect_uri="+redirectUri);
 	       HttpURLConnection codeConection = (HttpURLConnection) urlForCode.openConnection();
 	       codeConection.setRequestMethod("GET");
 	       String readLine = null;
@@ -99,7 +100,7 @@ public class TestApi {
 	       }
 	       
 	       
-	        code ="Mfc09c7d7-cdb6-19f4-4a41-c1604d88d189";     
+	        code ="Mef31cf54-266a-6de0-a8bb-b7e3e51c5082";     
 		return code;
 	}
 	
@@ -142,4 +143,3 @@ public class TestApi {
 		return accesstoken;
 	}
 	 
-}

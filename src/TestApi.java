@@ -93,8 +93,7 @@ public class TestApi {
 	           }
 	           
 	           // print result
-	           System.out.println("JSON String Result " + response);
-	           //GetAndPost.POSTRequest(response.toString());
+	           System.out.println("JSON String Result " + response);  
 	       } else {
 	           System.out.println("Bad Request");
 	       }

@@ -14,7 +14,7 @@ public class TestApi {
 	       String clientsecret = "L5_Q~_.61.uic_Kpqtze4pwg-Ohk~.we6l";
 	       String baseUrl = "https://login.microsoft.com/common/oauth2/v2.0/";
 	       String authorizationCode = "authorization_code";
-	       String redirectUri = "http://localhost:8080/podium/";
+	       String redirectUri = "http://localhost:8080/podium/login";
 	       String readLine = null;
 	       String accesstoken = null ;
 	       int responseCode = 0;

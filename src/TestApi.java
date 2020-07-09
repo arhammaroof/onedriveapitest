@@ -38,7 +38,7 @@ public class TestApi {
 	       os.write( outputInBytes );    
 	       os.close();
 	       responseCode = conection2.getResponseCode();
-	   
+	       if (responseCode == HttpURLConnection.HTTP_OK) {
 	           BufferedReader in = new BufferedReader(
 	               new InputStreamReader(conection2.getInputStream()));
 	           StringBuffer response = new StringBuffer();
@@ -47,7 +47,9 @@ public class TestApi {
 	           } in .close();
 	           // print result
 	           System.out.println("JSON String Result " + response);
-	           //GetAndPost.POSTRequest(response.toString());
+	       }else {
+	    	   System.out.println("Bad Request");
+	       }
 	     
 	 
 	 }
@@ -93,7 +95,7 @@ public class TestApi {
 	           System.out.println("JSON String Result " + response);
 	           //GetAndPost.POSTRequest(response.toString());
 	       } else {
-	           System.out.println("NOT WORKED");
+	           System.out.println("Bad Request");
 	       }
 	       
 	       
@@ -132,7 +134,7 @@ public class TestApi {
 		       accesstoken =(String) obj.get("access_token");
 		       System.out.println(accesstoken);
 	       } else {
-	           System.out.println("NOT WORKED");
+	           System.out.println("Bad Request");
 	       }
 	              
 
